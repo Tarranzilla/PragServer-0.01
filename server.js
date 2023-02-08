@@ -1,6 +1,8 @@
 /* ================ Dependencias ================ */
 
 const express = require("express");
+const path = require("path");
+const cors = require("cors");
 
 /* App se torna uma instancia de express */
 const app = express();
@@ -8,6 +10,12 @@ const app = express();
 /* ================ Configurações ================ */
 
 app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, "public")));
+app.use(express.json());
+//app.use(getWeather);
+
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
 
 /* ================ Middlewares ================ */
 
@@ -20,18 +28,7 @@ const getWeather = (req, res, next) => {
 
 /* Rotas raiz */
 app.get("/", (req, res) => {
-    res.send(`
-        <h1>PragServer</h1>
-        <p>Seja bem vindo ao PragServer!</p>
-        <br>
-        <a href="/sobre">Sobre</a>
-        <br>
-        <p>Escolha uma cor:</p>
-        <form action="/cor" method="POST">
-            <input type="text" name="cor" placeholder="Cor">
-            <button type="submit">Enviar</button>
-        </form>
-        `);
+    res.render("home", { title: "Home" });
 });
 
 /* Rotas sobre */
