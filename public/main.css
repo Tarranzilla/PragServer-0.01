@@ -1,10 +1,24 @@
 /* Path: public\main.css */
 
 @font-face {
-    font-family: "Roboto";
+    font-family: "Roboto_Web";
     font-weight: 400;
     src: url(fonts/roboto-regular-webfont.woff2) format("woff2"),
         url(fonts/roboto-regular-webfont.woff) format("woff");
+}
+
+@font-face {
+    font-family: "Roboto_Web";
+    font-weight: 300;
+    src: url(fonts/roboto-light-webfont.woff2) format("woff2"),
+        url(fonts/roboto-light-webfont.woff) format("woff");
+}
+
+@font-face {
+    font-family: "Roboto_Web";
+    font-weight: 200;
+    src: url(fonts/roboto-thin-webfont.woff2) format("woff2"),
+        url(fonts/roboto-thin-webfont.woff) format("woff");
 }
 
 :root {
@@ -18,7 +32,7 @@ html {
 }
 
 body {
-    font-family: "Roboto";
+    font-family: "Roboto_Web";
     font-size: 1.25rem;
     line-height: 1.5;
 }
