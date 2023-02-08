@@ -10,7 +10,7 @@ const app = express();
 /* ================ Configurações ================ */
 
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, "/public")));
+app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 
 //app.use(cors());
@@ -56,6 +56,14 @@ app.post("/cor", (req, res) => {
     } else {
         res.send("Que cor interessante!");
     }
+});
+
+app.get("/api/texturas", (req, res) => {
+    res.json([
+        { id: 1, textura: "Tijolo" },
+        { id: 2, textura: "Madeira" },
+        { id: 3, textura: "Cimento" },
+    ]);
 });
 
 /* ================ Porta do Servidor ================ */

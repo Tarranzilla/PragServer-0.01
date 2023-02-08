@@ -35,4 +35,12 @@ body {
     font-family: "Roboto_Web";
     font-size: 1.25rem;
     line-height: 1.5;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
 }
