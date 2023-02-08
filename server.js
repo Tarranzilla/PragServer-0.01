@@ -68,4 +68,4 @@ app.get("/api/texturas", (req, res) => {
 
 /* ================ Porta do Servidor ================ */
 
-app.listen(3030);
+app.listen(8888);
