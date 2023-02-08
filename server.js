@@ -9,6 +9,13 @@ const app = express();
 
 app.use(express.urlencoded({ extended: false }));
 
+/* ================ Middlewares ================ */
+
+const getWeather = (req, res, next) => {
+    req.weather = true;
+    next();
+};
+
 /* ================ Rotas ================ */
 
 /* Rotas raiz */
@@ -28,8 +35,11 @@ app.get("/", (req, res) => {
 });
 
 /* Rotas sobre */
-app.get("/sobre", (req, res) => {
-    res.send("Sobre o PragServer!");
+app.get("/sobre", getWeather, (req, res) => {
+    res.send(`
+    <h1>Sobre o PragServer!</h1>
+    <p>${req.weather ? "Hoje está chovendo!" : "Hoje está sol!"}</p>
+    `);
 });
 
 /* Rotas cor */
@@ -48,5 +58,7 @@ app.post("/cor", (req, res) => {
         res.send("Que cor interessante!");
     }
 });
+
+/* ================ Porta do Servidor ================ */
 
 app.listen(3030);
